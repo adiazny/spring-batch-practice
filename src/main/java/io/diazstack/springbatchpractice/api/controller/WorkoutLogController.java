@@ -24,8 +24,14 @@ public class WorkoutLogController {
     }
 
     @PostMapping
-    public ResponseEntity<WorkoutLogDto> handlePost(@RequestBody WorkoutLogDto workoutLogDto){
-        return new ResponseEntity<>(workoutLogService.handlePost(workoutLogDto),HttpStatus.OK);
+    public ResponseEntity handlePost(@RequestBody WorkoutLogDto workoutLogDto){
+        return new ResponseEntity<>(workoutLogService.saveNewWorkoutLog(workoutLogDto),HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity updateWorkoutLog(@PathVariable UUID id, @RequestBody WorkoutLogDto workoutLogDto){
+        workoutLogService.updateWorkoutLog(id, workoutLogDto);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

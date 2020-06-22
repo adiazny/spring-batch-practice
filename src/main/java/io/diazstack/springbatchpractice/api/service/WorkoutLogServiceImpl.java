@@ -24,13 +24,21 @@ public class WorkoutLogServiceImpl implements WorkoutLogService {
     }
 
     @Override
-    public WorkoutLogDto handlePost(WorkoutLogDto workoutLogDto) {
+    public WorkoutLogDto saveNewWorkoutLog(WorkoutLogDto workoutLogDto) {
+        //Todo: Impl save logic to persistence store
         System.out.println(workoutLogDto);
         return new WorkoutLogDto();
     }
 
     @Override
+    public void updateWorkoutLog(UUID id, WorkoutLogDto workoutLogDto) {
+        //Todo: Impl update logid to persistence store
+        System.out.println("Updated: " + workoutLogDto);
+    }
+
+    @Override
     public void deleteByID(UUID id) {
+        //Todo: Impl delete logic from persistence store
         System.out.println("WorkoutLog Deleted");
     }
 }
