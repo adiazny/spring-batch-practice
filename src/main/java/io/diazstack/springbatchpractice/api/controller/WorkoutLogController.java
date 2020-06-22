@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
@@ -24,7 +25,7 @@ public class WorkoutLogController {
     }
 
     @PostMapping
-    public ResponseEntity handlePost(@RequestBody WorkoutLogDto workoutLogDto){
+    public ResponseEntity handlePost(@Valid @RequestBody WorkoutLogDto workoutLogDto){
         return new ResponseEntity<>(workoutLogService.saveNewWorkoutLog(workoutLogDto),HttpStatus.OK);
     }
 
